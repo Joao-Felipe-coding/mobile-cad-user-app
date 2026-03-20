@@ -17,7 +17,6 @@ public class CreateUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
 
-        //Vincula variável com elemento da interface gráfica, escrito
         editNome = findViewById(R.id.nome_completo);
         editEmail = findViewById(R.id.email);
         btnSalvar = findViewById(R.id.btnSalvar);
