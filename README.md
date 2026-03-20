@@ -23,5 +23,3 @@ Classe responsável por capturar as informações digitadas no formulário. Ela 
 ### `UserAdapter.java`
 Classe essencial para o funcionamento do `RecyclerView`. Ela define como os dados dos usuários serão vinculados aos elementos visuais da lista.
 
----
-*Documentação gerada para auxílio no desenvolvimento do projeto.*
