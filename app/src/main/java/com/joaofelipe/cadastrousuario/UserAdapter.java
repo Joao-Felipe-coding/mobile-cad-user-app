@@ -1,6 +1,9 @@
 package com.joaofelipe.cadastrousuario;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -45,6 +48,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return listaUsuarios != null ? listaUsuarios.size() : 0;
     }
 
+    //Classe interna ViewHolder: Servir para "segurar" as referências dos componentes de cada linha
+    //Evitar chamadas respectivas ao findViewById, melhorando a performance do RecycleView
 
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        //Referência para o TextView da linha
+        TextView tvNome;
 
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            //Faz o mapeamento do ID do layout para o objeto java
+            //android.R.id.text1 é o ID padrão do layout 'simple_list_item_1'
+            tvNome = itemView.findViewById((android.R.id.text1));
+        }
+    }
 }
