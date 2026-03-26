@@ -1,10 +1,8 @@
 package com.joaofelipe.cadastrousuario;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
 //CLasse Adapter: Gerencia a criação e o preenchimento dos itens na RecycleView
@@ -13,7 +11,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     private List<String> listaUsuarios;
 
     //Construtor que permite  a MainActivity "entregue" a lista de dados para este Adapter
-    public UserAdapter(list<Sting> lista){
+    public UserAdapter(list<String> lista){
         this.listaUsuarios = lista;
 
     }
@@ -27,18 +25,26 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
         return new ViewHolder(view);
 
-
-        //Método 2: Vincula os dados de um objeto de uma linha específica da tela
-
-        @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position){
-            // Recupera os dados da lista de acordo com a posição que o Android está desenhando agora
-            String nome = listaUsuarios.get(position);
-
-            //Define o texto no componente visual que está guardado dentro de 'holder'
-            holder.tvNome.setText(nome);
-
-        }
-
     }
+    //Método 2: Vincula os dados de um objeto de uma linha específica da tela
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position){
+        // Recupera os dados da lista de acordo com a posição que o Android está desenhando agora
+        String nome = listaUsuarios.get(position);
+
+        //Define o texto no componente visual que está guardado dentro de 'holder'
+        holder.tvNome.setText(nome);
+    }
+
+
+    //Método 3: Informa ao Android quantos itens a lista possui ao todo
+    @Override
+    public int getItemCount(){
+        //Se a lista existir, retorna o tamanho. Se não, retorna zero
+        return listaUsuarios != null ? listaUsuarios.size() : 0;
+    }
+
+
+
 }
