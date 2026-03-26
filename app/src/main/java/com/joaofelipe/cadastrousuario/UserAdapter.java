@@ -1,7 +1,7 @@
 package com.joaofelipe.cadastrousuario;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,5 +25,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         //LayoutInflater transforma o arquivo XML em um objeto View Java
         //Aqui usamos um layout padrão do Android (simple_list_item_1) para facilitar
         View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+        return new ViewHolder(view);
     }
 }
