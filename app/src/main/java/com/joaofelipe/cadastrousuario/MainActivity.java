@@ -1,5 +1,6 @@
 package com.joaofelipe.cadastrousuario;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -34,6 +36,27 @@ public class MainActivity extends AppCompatActivity {
         if(listaNomes.isEmpty()){
             listaNomes.add("Nomes de cadastro");
         }
+
+        //Mapeamento dos componentes do RecyclerView do XML para o objeto java
+        recyclerView = findViewById(R.id.recycler_view);
+
+        //Define o LayoutManager: organiza itens da lista numa coluna vertical simples
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //Instancia o adaptador passando a nossa lista de nomes
+        adapter = new UserAdapter(listaNomes);
+
+
+        //Conecta o adaptador ao recyclerView para que os dados sejam desenhados na tela
+        recyclerView.setAdapter(adapter);
+
+        //Mapeia o botão de cadastro
+        btnCadastrar = findViewById((R.id.btnCadastrar);
+
+        //Configura o evento de clique usando a expressão  lambda (java 8+)
+        btnCadastrar.setOnClickListener(View v -> {
+            startActivity(new Intent(MainActivity.this, CreateUser.class));
+        });
     }
 
 
