@@ -23,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
     //Enquanto o app estiver aberto e sejam acessados diretamente por outras telas (Activities)
     public static List<String> listaNomes = new ArrayList<>();
 
+    //Método de inicialização da Activity (Ponto de entrada da tela)
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        //Vincula o arquivo de layout XML (activity_main.xml) a essa classe java
+        setContentView(R.layout.activity_main);
+
+        //Regra de negócio: insere un texto no topo da lista, caso ela esteja vazia
+        if(listaNomes.isEmpty()){
+            listaNomes.add("Nomes de cadastro");
+        }
+    }
 
 
 }
